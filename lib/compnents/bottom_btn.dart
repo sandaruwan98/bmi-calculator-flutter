@@ -10,7 +10,7 @@ class BottomBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ontap(),
+      onTap: ontap,
       child: Container(
         margin: EdgeInsets.only(top: 10.0),
         color: kBottomBtnColor,
