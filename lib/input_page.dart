@@ -1,6 +1,9 @@
+import 'package:bmi_calculator/results_page.dart';
+import 'package:bmi_calculator/roundicon_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/reusable_card.dart';
+import 'bottom_btn.dart';
 import 'const.dart';
 import 'icon_content.dart';
 
@@ -170,34 +173,15 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           )),
-          Container(
-            margin: EdgeInsets.only(top: 10.0),
-            color: kBottomBtnColor,
-            width: double.infinity,
-            height: kBottomBtnHeight,
+          BottomBtn(
+            text: 'CALCULATE',
+            ontap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ResultsPage()));
+            },
           ),
         ],
       ),
-    );
-  }
-}
-
-class RoundIconBtn extends StatelessWidget {
-  RoundIconBtn({this.icon, this.onpress});
-
-  final IconData icon;
-  final Function onpress;
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      constraints: BoxConstraints.tightFor(height: 48, width: 48),
-      fillColor: Color(0xFF4C4F5E),
-      shape: CircleBorder(),
-      child: Icon(
-        icon,
-        color: Colors.white,
-      ),
-      onPressed: () => onpress(),
     );
   }
 }
